@@ -16,14 +16,14 @@ Start with either command:
  or
  ```npm start```
 ## 3. Signup a new user
-### create a raw JSON body with username and password key/value pairs:
+Create a raw JSON body with username and password key/value pairs:
 ```
 {
   "username": "bob",
   "password": "123"
 }
 ```
-### Send a POST request to the `/user/signup` endpoint:
+Send a POST request to the `/user/signup` endpoint:
 ```POST http://localhost:3456/user/signup```
 ## 4. Login the user
 Create a raw JSON body with username and password key/value pairs:
@@ -47,4 +47,28 @@ token: ABCMYtokenStringExample
 Add token to Authorization Header:
 ```
 Authorization: Bearer ABCMYtokenStringExample
+```
+## 6. Perform CRUD operations
+### CREATE:
+
+ ```POST http://localhost:3456/endpoint```
+ 
+### READ ALL:
+
+ ```GET http://localhost:3456/endpoint```
+ 
+### READ ONE by Id:
+
+ ```GET http://localhost:3456/endpoint/_Id_Goes_Here```
+### UPDATE
+ ```PUT http://localhost:3456/endpoint/_Id_Goes_Here```
+### DELETE
+ ```DELETE http://localhost:3456/endpoint/_Id_Goes_Here```
+
+#### DATA FOR CREATE AND UPDATE SHOULD GO INTO A RAW JSON BODY:
+```
+{
+  "title": "my Title here",
+  "description": "anything"
+}
 ```
