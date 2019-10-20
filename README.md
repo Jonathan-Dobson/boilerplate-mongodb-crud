@@ -2,7 +2,7 @@
 Basic Express MongoDB CRUD REST API with User Athentication with JWT for basic signup and login. This boilerplate comes with a starter endpoint and a starter model and a user model with signup and login endpoints.
 
 ## 1. Open your Terminal, clone this repo, and install dependencies:
-```https://github.com/fromjdobson/boilerplate-mongodb-crud.git && cd boilerplate-mongodb-crud && npm i```
+```git clone https://github.com/fromjdobson/boilerplate-mongodb-crud.git && cd boilerplate-mongodb-crud && npm i```
 
 ## 2. In the `.env` file on the main directory, add a port number, a secret, and your database credentials
 ```
