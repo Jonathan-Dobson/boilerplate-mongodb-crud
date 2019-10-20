@@ -1,7 +1,10 @@
 # Boilerplate Mongodb CRUD with JWT Auth
 Basic Express MongoDB CRUD REST API with User Athentication with JWT for basic signup and login. This boilerplate comes with a starter endpoint and a starter model and a user model with signup and login endpoints.
 
-## 1. In the `.env` file on the main directory, add a port number, a secret, and your database credentials
+## 1. Open your Terminal, clone this repo, and install dependencies:
+```https://github.com/fromjdobson/boilerplate-mongodb-crud.git && cd boilerplate-mongodb-crud && npm i```
+
+## 2. In the `.env` file on the main directory, add a port number, a secret, and your database credentials
 ```
 MONGO_USER=myUserName
 MONGO_PASS=myPassword
@@ -10,12 +13,12 @@ MONGO_DB=myDatabase
 SECRET=ABCabc123
 PORT=3456
 ```
-## 2. Start the server
+## 3. Start the server
 Start with either command:
  ```nodemon server/server.js```
  or
  ```npm start```
-## 3. Signup a new user
+## 4. Signup a new user
 Create a raw JSON body with username and password key/value pairs:
 ```
 {
@@ -25,7 +28,7 @@ Create a raw JSON body with username and password key/value pairs:
 ```
 Send a POST request to the `/user/signup` endpoint:
 ```POST http://localhost:3456/user/signup```
-## 4. Login the user
+## 5. Login the user
 Create a raw JSON body with username and password key/value pairs:
 ```
 {
@@ -37,7 +40,7 @@ Send a POST request to the `/user/login` endpoint:
 ```POST http://localhost:3456/user/login```
 Use the JWT token from the response in the header
 
-## 5. Use the JWT token in the header
+## 6. Use the JWT token in the header
 When the user has entered the correct username and password to login, the API will respond with a JWT token that can be added to the header of all requests.
 Response:
 ```
@@ -48,7 +51,7 @@ Add token to Authorization Header:
 ```
 Authorization: Bearer ABCMYtokenStringExample
 ```
-## 6. Perform CRUD operations
+## 7. Perform CRUD operations
 ### CREATE:
 
  ```POST http://localhost:3456/endpoint```
@@ -73,7 +76,7 @@ Authorization: Bearer ABCMYtokenStringExample
 }
 ```
 
-## 7. Customize Models
+## 8. Customize Models
 To customize your own database models, just duplicate the existing file at `server/database/models/data.js`
 The example data.js looks like this
 ```
@@ -92,7 +95,7 @@ const userSchema = new Schema({
 
 module.exports = model("Data", userSchema);
 ```
-## 8. Customize Endpoints
+## 9. Customize Endpoints
 > To customize new endpoints, add this line to the file at `server/routes/mainRouter.js`
 ```
 app.use('/YOUR_endpoint_URI_HERE', require('./YOUR_NEW_endpoint/Router'))
