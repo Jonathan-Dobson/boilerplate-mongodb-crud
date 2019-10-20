@@ -26,16 +26,16 @@ Start with either command:
 ### Send a POST request to the `/user/signup` endpoint:
 ```POST http://localhost:3456/user/signup```
 ## 4. Login the user
-### create a raw JSON body with username and password key/value pairs:
+Create a raw JSON body with username and password key/value pairs:
 ```
 {
   "username": "bob",
   "password": "123"
 }
 ```
-### Send a POST request to the `/user/login` endpoint:
+Send a POST request to the `/user/login` endpoint:
 ```POST http://localhost:3456/user/login```
-### Use the JWT token from the response in the header
+Use the JWT token from the response in the header
 
 ## 5. Use the JWT token in the header
 When the user has entered the correct username and password to login, the API will respond with a JWT token that can be added to the header of all requests.
