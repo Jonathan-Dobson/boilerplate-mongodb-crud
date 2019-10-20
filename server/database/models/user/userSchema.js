@@ -13,4 +13,8 @@ const userSchema = new Schema({
     }
 });
 
+userSchema.pre("save", require('./hashPassword'))
+userSchema.methods.checkPassword = require('./checkPassword')
+userSchema.methods.withoutPassword = require('./withoutPassword')
+
 module.exports = model("User", userSchema);

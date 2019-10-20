@@ -1,4 +1,4 @@
-const User = require('../../database/models/user');
+const User = require('../../database/models/user/userSchema');
 const jwt = require('jsonwebtoken');
 
 module.exports = (req, res, next) => {
@@ -9,16 +9,30 @@ module.exports = (req, res, next) => {
             res.status(500)
             return next(err)
         }
-        if (!user || user.password !== req.body.password) {
-            res.status(403);
-            return next(new Error("Email or password are incorrect"));
+        if (!user) {
+            res.status(401);
+            return next(new Error("Username or password are incorrect"));
         }
         else {
-            return res.send( {
-                success: true,
-                user: user.toObject(),
-                token: jwt.sign( user.toObject(), require('../../init/environment').SECRET )
-            } )
+            user.checkPassword(req.body.password, 
+                (err, match)=>{
+                    if(err){
+                        return res.status(500).send(err);
+                    }
+                    if(!match){
+                        return res.status(401).send({
+                            success: false,
+                            message: "Username or password are incorrect."
+                        });
+                    }
+                    return res.send( {
+                        success: true,
+                        user: user.withoutPassword(),
+                        token: jwt.sign( user.withoutPassword(), require('../../init/environment').SECRET )
+                    } );
+                })
+
+            
         }
     }
      )
