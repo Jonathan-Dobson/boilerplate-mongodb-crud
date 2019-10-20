@@ -1,5 +1,5 @@
 # Boilerplate Mongodb CRUD with JWT Auth
-Basic Express MongoDB CRUD REST API with User Athentication with JWT for basic sign up and login
+Basic Express MongoDB CRUD REST API with User Athentication with JWT for basic signup and login. This boilerplate comes with a starter endpoint and a starter model and a user model with signup and login endpoints.
 
 ## 1. In the `.env` file on the main directory, add a port number, a secret, and your database credentials
 ```
