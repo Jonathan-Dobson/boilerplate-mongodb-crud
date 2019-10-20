@@ -72,3 +72,44 @@ Authorization: Bearer ABCMYtokenStringExample
   "description": "anything"
 }
 ```
+
+## 7. Customize Models
+To customize your own database models, just duplicate the existing file at `server/database/models/data.js`
+The example data.js looks like this
+```
+const {Schema, model} = require("mongoose");
+
+const userSchema = new Schema({  
+    title: String,
+    description: String,
+    value: Number,
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+        required: true
+    }
+});
+
+module.exports = model("Data", userSchema);
+```
+## 8. Customize Endpoints
+> To customize new endpoints, add this line to the file at `server/routes/mainRouter.js`
+```
+app.use('/YOUR_endpoint_URI_HERE', require('./YOUR_NEW_endpoint/Router'))
+```
+> Then copy the directory with all the files from ```server/routes/endpoint/``` into a new folder named: 
+```
+./YOUR_NEW_endpoint/
+```
+> Then update the location of your model in `server/routes/endpoint/modelPath.js` to the name of your model file:
+```
+module.exports = require('../../database/models/data.js');
+```
+> Optionally customize your CRUD routes in 
+```
+server/routes/YOUR_NEW_endpoint/Router.js
+```
+> Use your new CRUD like:
+```
+POST http://localhost:3456/YOUR_NEW_endpoint/
+```
