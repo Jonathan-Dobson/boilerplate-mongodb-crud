@@ -113,3 +113,6 @@ server/routes/YOUR_NEW_endpoint/Router.js
 ```
 POST http://localhost:3456/YOUR_NEW_endpoint/
 ```
+## Mind Map
+
+![mind map](https://github.com/fromjdobson/boilerplate-mongodb-crud/blob/master/mindmap.png)
